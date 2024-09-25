@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenação de Números</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="ordenando.js"></script>
+</head>
+<body>
+    <input type="number" id="valor">
+    <button onclick="add()">Adicionar</button>
+    <select id="algoritmo">
+        <option value="bubble">Bubble Sort</option>
+        <option value="selection">Selection Sort</option>
+        <option value="quick">Quick Sort</option>
+    </select>
+    <button onclick="ordenar()">Ordenar</button>
+    <button onclick="misturar()">Misturar</button>
+    <ul id="valores"></ul>
+
+    <script>
+        function add() {
+            const valorInput = document.getElementById('valor');
+            const valoresList = document.getElementById('valores');
+            const node = document.createElement('li');
+            const textNode = document.createTextNode(valorInput.value);
+            node.appendChild(textNode);
+            valoresList.appendChild(node);
+            valorInput.value = '';
+        }
+
+        function ordenar() {
+            const valoresList = document.getElementById('valores');
+            const algoritmoSelect = document.getElementById('algoritmo');
+            const vetor = Array.from(valoresList.children).map(item => eval(item.innerHTML));
+
+            switch (algoritmoSelect.selectedIndex) {
+                case 0:
+                    bubble_sort(vetor);
+                    break;
+                case 1:
+                    selection_sort(vetor);
+                    break;
+                case 2:
+                    quick_sort(vetor);
+                    break;
+            }
+
+            valoresList.innerHTML = vetor.map(valor => `<li>${valor}</li>`).reduce((acc, item) => acc + item, '');
+        }
+
+        function misturar() {
+            const valoresList = document.getElementById('valores');
+            const vetor = Array.from(valoresList.children).map(item => eval(item.innerHTML));
+            shuffle(vetor, vetor.length);
+            valoresList.innerHTML = vetor.map(valor => `<li>${valor}</li>`).reduce((acc, item) => acc + item, '');
+        }
+    </script>
+</body>
+</html>

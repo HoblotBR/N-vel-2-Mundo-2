@@ -1,0 +1,71 @@
+/* Custom styles to complement Bootstrap */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FFF3CD;  /* Light yellow background */
+    color: #333;
+}
+
+.container-fluid {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #6C4A00;  /* Dark brown for headings */
+    margin-bottom: 1rem;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.btn-primary {
+    background-color: #FFC107;  /* Bootstrap's warning color */
+    border-color: #FFC107;
+    color: #6C4A00;
+}
+
+.btn-primary:hover {
+    background-color: #FFD54F;
+    border-color: #FFD54F;
+    color: #6C4A00;
+}
+
+/* Specific styles for ordenando.html */
+#valores {
+    list-style-type: none;
+    padding: 0;
+}
+
+#valores li {
+    background-color: #FFE082;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Specific styles for receitas.html */
+.recipe-card .card-body {
+    height: 250px;
+    overflow-y: auto;
+}
+
+/* Specific styles for usuarios.html */
+.user-card .card-img-top {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 1rem auto;
+}
